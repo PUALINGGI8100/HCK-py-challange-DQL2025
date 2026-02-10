@@ -2,7 +2,7 @@
 Asset ini merupakan arsip pengerjaan **Hackhaton: Python Challange** yang di adakan oleh DQLab. Di arsipkan untuk kebutuhan pribadi. dengan deskripsi folder sebagai berikut :
 
    1. Folder **/task_1**, file historis yang dibuat untuk menjawab tugas _**date_standardization**_.
-   2. Folder **/task_2**, 
+   2. Folder **/task_2**,  file historis yang dibuat untuk menjawab tugas _**ANALISIS POLA PEMBELIAN DAN PAKET PRODUK**_.
 
 # Licensing
 

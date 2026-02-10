@@ -1,0 +1,74 @@
+SOAL HACKATHON: ANALISIS POLA PEMBELIAN DAN PAKET PRODUK
+
+DESKRIPSI SOAL
+DQMart ingin mengidentifikasi produk yang sering dibeli bersamaan oleh pelanggan dalam satu transaksi. Data transaksi tersedia dalam file zip yang disertakan. Buka file Excel bernama "transaksi_dqmart.xlsx", dan perhatikan file sheet "Transaksi" dengan kolom: Kode Transaksi , Nama Produk, dan Jumlah (kolom ini diabaikan pada saat proses). 
+
+Partisipan perlu membuat file  paket produk bernama "product_packaging.xlsx" berdasarkan kombinasi produk yang paling sering muncul menggunakan algoritma Apriori.
+
+TUJUAN
+Buat script Python bernama "apriori_hackathon.py" yang melakukan langkah-langkah berikut:
+1. Baca file Excel "transaksi_dqmart.xlsx" dari sheet "Transaksi" dengan menggunakan fungsi yang harus ada file Python tersebut:
+
+   def run_analysis(input_xlsx_path: str, output_xlsx_path: str) -> None:
+
+   dimana untuk contoh data diberikan fungsi ini akan dipanggil dengan:
+   
+   run_analysis("transaksi_dqmart.xlsx", "product_packaging.xlsx")
+   
+2. Jalankan algoritma Apriori menggunakan mlxtend:
+   - min_support = 0.05
+   - min_confidence = 0.4
+   
+   Petunjuk: import yang diperlukan seperti ini
+   from mlxtend.frequent_patterns import apriori, association_rules
+
+3. Susun file output bernama product_packaging.xlsx.
+
+FORMAT OUTPUT
+Untuk kepentingan konsumsi informasi buat audiens yang bukan data scientist, maka hasilkan file Excel dengan nama "product_packaging.xlsx". 
+
+File Excel tersebut memiliki kolom-kolom yang disederhanakan sebagai berikut:
+- Packaging Set ID (Nama urut kombinasi produk)
+- Products (Daftar produk dalam kombinasi, dipisahkan dengan titik koma ';', jika terdapat dua set yang memiliki product yang sama tolong digabungkan)
+  Sebagai contoh: 
+  Product 4;Product 20;Product 25
+  Catatan: Product 20;Product 25;Product 4 dan Product 4;Product 20;Product 25 adalah product set yang sama (untuk kebutuhan penyederhanaan di soal ini). Dan harus diurutkan berdasarkan namanya, dengan demikian yang dijadikan output adalah Product 4;Product 20;Product 25 dan bukan Product 20;Product 25;Product 4.
+- Maximum Lift (Nilai lift tertinggi yang ditemukan untuk kombinasi tersebut)
+- Maximum Confidence (Nilai confidence tertinggi yang ditemukan untuk kombinasi tersebut)
+
+Contoh Output:
+Packaging Set ID	Products	Maximum Lift	Maximum Confidence
+1	Product 4;Product 20;Product 25	3.42	0.86
+2	Product 10;Product 13	2.75	0.72
+3	Product 2;Product 5	2.60	0.70
+...
+...
+
+KETENTUAN TAMBAHAN
+- Urutan produk dalam setiap set harus berdasarkan urutan nama (misal Product 4;Product 20;Product 25, bukan Product 20;Product 4;Product 25).
+- Kombinasi set produk tidak boleh duplikat (misalnya {A, B} dianggap sama dengan {B, A}).
+- Urutan hasil akhir berdasarkan nilai lift tertinggi (descending), kemudian confidence tertinggi (descending) jika lift sama.
+- File harus disimpan dalam format Excel.
+
+
+Kembali script yang dibuat adalah file Python dengan nama 'apriori_hackathon.py' dan submit sebagai attachment email ke tugastest@ujikompetensi.comdengan subjek 
+
+Solusi Hackathon untuk soal 'PRAHACKATHON-02'
+
+Submission ditunggu sampai dengan tanggal 14 November pukul 10:00 WIB. Scoring akan dimulai pada tanggal 14 November 2025 pukul 11:00 WIB. Hasil akhir akan diberikan selambat-lambatnya tanggal 14 November pukul 21:00 WIB.
+
+Scoring akan dilakukan dengan file dataset lain yang ada pada system, dan akan berdasarkan jumlah hasil dan urutan yang sama. Jika temuan benar terhadap 70%, maka skor adalah 70. Skor maksimal adalah 100.
+
+Dan untuk soal ini, scoring tidak memperhitungkan waktu, tapi lebih ke akurasi penemuan. Jika di-submit lebih belakangan atau dekat deadline tidak akan mengurangi bobot skor.
+
+
+PETUNJUK TEKNIS
+Gunakan library: pandas, mlxtend.
+Fungsi mlxtend yang relevan: apriori, association_rules.
+
+RINGKASAN
+Contoh Input: transaksi_dqmart.xlsx
+Contoh Output dari hasil proses file input: product_packaging.xlsx
+
+Metode: Apriori + Association Rules
+Library utama: pandas, mlxtend
